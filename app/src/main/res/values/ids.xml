@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="take_photo" type="id"/>
+    <item name="take_video" type="id"/>
+    <item name="done" type="id"/>
+    <item name="media_switcher" type="id"/>
+    <item name="container" type="id"/>
+    <item name="rotate_left" type="id"/>
+    <item name="rotate_right" type="id"/>
+    <item name="save" type="id"/>
+    <item name="cancel" type="id"/>
+    <item name="crop" type="id"/>
+    <item name="grid" type="id"/>
+    <item name="no_data" type="id"/>
+    <item name="overlay" type="id"/>
+    <item name="thumbnail" type="id"/>
+
+</resources>

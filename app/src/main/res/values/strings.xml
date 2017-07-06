@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">魔方视频编辑demo</string>
+    <string name="select_clip">添加视频、图片</string>
+    <string name="addVideo">选择视频</string>
+    <string name="addTheme">主题</string>
+    <string name="addMusic">音乐</string>
+    <string name="addFilter">滤镜</string>
+    <string name="edit">编辑</string>
+    <string name="addCaption">添加字幕</string>
+    <string name="addCaptionStyle">添加字幕样式</string>
+    <string name="addSticker">添加动画贴纸</string>
+    <string name="play">播放</string>
+    <string name="fx">视频特技</string>
+    <string name="transition">视频转场</string>
+    <string name="Strength">Strength</string>
+    <string name="themePackagePath">主题包裹</string>
+    <string name="captionStylePackagePath">字幕样式包裹</string>
+    <string name="stickerPackagePath">动画贴纸包裹</string>
+    <string name="fxPackagePath">特效包裹</string>
+    <string name="change">更改</string>
+    <string name="setPackagePath">包裹路径设置</string>
+    <string name="basicFxPackagePath">assets:/7FFCF99A-5336-4464-BACD-9D32D5D2DC5E.videofx</string>
+    <string name="basicThemePackagePath">assets:/ED51E571-2650-4754-A45D-AA1CFEA14A81.theme</string>
+    <string name="basicStickerPackagePath">assets:/89740AEA-80D6-432A-B6DE-E7F6539C4121.animatedsticker</string>
+    <string name="basicCaptionStylePackagePath">assets:/1DC56C2A-0F4A-4C06-8ABC-DF41C89E33A1.captionstyle</string>
+    <string name="ok">确定</string>
+    <string name="redo">重置</string>
+    <string name="strength">磨皮</string>
+    <string name="btn_save">保存</string>
+
+    <string name="waiting">Waiting&#8230;</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="cut">裁剪</string>
+    <string name="changeSpeed">变速</string>
+    <string name="changeColor">色彩</string>
+    <string name="rotate">旋转</string>
+    <string name="scale">缩放</string>
+    <string name="tip">裁剪后的时长: </string>
+    <!--<string name="ok">OK</string>-->
+</resources>

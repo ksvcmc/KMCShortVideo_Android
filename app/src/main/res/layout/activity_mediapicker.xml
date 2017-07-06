@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    >
+
+    <RelativeLayout
+        android:id="@+id/media_pikcer_header"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true">
+        <ImageView
+            android:id="@+id/media_picker_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="25dp"
+            android:src="@drawable/back_off"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="选择内容"
+            android:textColor="@color/white"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/media_picker_action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_below="@+id/media_pikcer_header"
+        android:layout_alignParentStart="true">
+        <Button
+            android:id="@+id/choose_all"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/button_baseline"
+            android:text="全部内容"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_size_28px"/>
+
+        <Button
+            android:id="@+id/choose_photo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="-8dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_baseline"
+            android:text="图片"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/font_size_28px" />
+
+        <Button
+            android:id="@+id/choose_video"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/button_baseline"
+            android:layout_marginLeft="-8dp"
+            android:text="视频"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/font_size_28px"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_below="@+id/media_picker_action"
+        android:layout_above="@+id/media_picker_done"
+        android:id="@id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/media_picker_done"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/purple_bottom"
+        android:text="开始制作视频"/>
+</RelativeLayout>

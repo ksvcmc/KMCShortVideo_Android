@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:background="@color/bg"
+    tools:context=".PhotoEditActivity">
+
+    <RelativeLayout
+        android:id="@+id/photo_edit_header"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:layout_alignParentTop="true">
+        <ImageView
+            android:id="@+id/photo_edit_button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/back_off"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/photo_edit_player"
+        android:layout_below="@+id/photo_edit_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.meicam.sdk.NvsLiveWindow
+                android:id="@+id/photo_edit_liveWindow"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/photo_edit_player_play"
+                android:layout_width="18dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="18dp"
+                android:src="@drawable/play"/>
+
+            <TextView
+                android:id="@+id/photo_edit_player_played_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:textColor="@color/white"
+                android:layout_gravity="center_vertical"
+                android:text="00:00"/>
+
+            <SeekBar
+                android:id="@+id/photo_edit_seekBar_Play"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="12dp"
+                android:max="4"/>
+
+            <TextView
+                android:id="@+id/photo_edit_player_left_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="19dp"
+                android:textColor="@color/white"
+                android:layout_gravity="center_vertical"
+                android:text="00:00"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/photo_edit_tab"
+        android:layout_below="@id/photo_edit_player"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginEnd="38dp"
+        android:weightSum="3">
+
+        <Button
+            android:id="@+id/photo_edit_button_change_duration"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:background="@drawable/button_baseline2"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_size_28px"
+            android:text="时长" />
+
+        <Button
+            android:id="@+id/photo_edit_button_change_color"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="-8dp"
+            android:background="@drawable/button_baseline2"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/font_size_28px"
+            android:text="@string/changeColor" />
+        <Button
+            android:id="@+id/photo_edit_button_rotate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="-8dp"
+            android:background="@drawable/button_baseline2"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/font_size_28px"
+            android:text="@string/rotate" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/photo_edit_tab_content"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:layout_below="@+id/photo_edit_tab"
+        android:layout_above="@+id/photo_edit_button_save"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="65dp">
+
+        <LinearLayout
+            android:id="@+id/photo_edit_tab_duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal"
+            android:weightSum="6">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_size_28px"
+                android:text="显示时长"
+                android:layout_weight="1"/>
+            <SeekBar
+                android:id="@+id/change_duration"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:max="4"
+                android:layout_weight="5"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/photo_edit_tab_change_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="31dp"
+            android:layout_marginRight="31dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:orientation="horizontal"
+                android:weightSum="6">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_size_28px"
+                    android:text="亮度 "
+                    android:layout_weight="1"/>
+                <SeekBar
+                    android:id="@+id/change_color_bright"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:max="10"
+                    android:layout_weight="5"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:orientation="horizontal"
+                android:weightSum="6">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_size_28px"
+                    android:text="对比度"
+                    android:layout_weight="1"/>
+                <SeekBar
+                    android:id="@+id/change_color_contrast"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:max="10"
+                    android:layout_weight="5"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="6">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_size_28px"
+                    android:text="饱和度"
+                    android:layout_weight="1"/>
+                <SeekBar
+                    android:id="@+id/change_color_saturation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:max="10"
+                    android:layout_weight="5"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/photo_edit_tab_rotate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <ImageView
+                android:id="@+id/photo_edit_rotate_anti_clockwise"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/rotate_anti_clockwise"/>
+
+            <ImageView
+                android:id="@+id/photo_edit_rotate_clockwise"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/rotate_clockwise"/>
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/photo_edit_button_save"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/purple_bottom"
+        android:text="@string/btn_save"
+        />
+</RelativeLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_selected="true">
+        <layer-list><!--layer-list不可少，下面的配置参数必须是带有小数的数值-->
+            <item
+                android:bottom="0dp"
+                android:left="-5.0dp"
+                android:right="-5.0dp"
+                android:top="-3.50dp">
+                <!--bottom表示从底部坐标开始，其它方向使用负数，表示从边界外指定位置开始绘制stroke线条，起到隐藏效果-->
+                <shape android:shape="rectangle">
+                    <solid
+                        android:color="#0E0F1A"/>
+                    <stroke
+                        android:width="3.0dp"
+                        android:color="#9012FE"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item
+        android:state_selected="false">
+        <layer-list>
+            <item
+                android:bottom="0dp"
+                android:left="-5.0dp"
+                android:right="-5.0dp"
+                android:top="-3.50dp">
+                <shape
+                    android:shape="rectangle">
+                    <solid
+                        android:color="#0E0F1A"/>
+                    <stroke
+                        android:width="3.0dp"
+                        android:color="@android:color/transparent"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

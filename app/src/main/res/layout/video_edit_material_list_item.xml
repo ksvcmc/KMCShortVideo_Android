@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:paddingLeft="5dip"
+    android:paddingRight="5dip"
+    android:paddingTop="12dip"
+    android:paddingBottom="12dip"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:clickable="false"
+    android:descendantFocusability="blocksDescendants">
+
+    <FrameLayout
+        android:layout_width="63dp"
+        android:layout_height="91dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/gimg_list_item"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignParentTop="true"
+                android:scaleType="centerCrop"/>
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_width="match_parent"
+                android:layout_height="21dp"
+                android:layout_below="@id/gimg_list_item"
+                android:gravity="center"
+                android:background="@color/white"
+                android:text="无"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/download_ind"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/download"
+            android:layout_gravity="center"/>
+        <ProgressBar
+            android:id="@+id/process_download"
+            android:layout_height="30dp"
+            android:layout_width="30dp"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+        <com.ksyun.media.kmcshortvideo.demo.CircleProgressBar
+            android:id="@+id/circle_progressbar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:visibility="gone"
+            android:layout_gravity="center" />
+
+        <ImageView
+            android:id="@+id/select_mask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="@color/purple"/>
+    </FrameLayout>
+
+</LinearLayout>

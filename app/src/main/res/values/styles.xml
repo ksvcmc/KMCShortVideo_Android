@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="NoTitleStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MediaPickerTheme" parent="Theme.AppCompat">
+        <!-- Support library compatibility -->
+        <item name="windowActionBarOverlay">true</item>
+        <item name="actionMenuTextColor">@color/picker_color</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:divider">@android:color/white</item>
+    </style>
+</resources>
