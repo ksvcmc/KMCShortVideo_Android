@@ -105,13 +105,13 @@ public class PhotoEditActivity extends Activity implements KMCShortVideo.Playbac
             if (mEditor == null)
                 return;
 
-            mEditor.changeTrimOutPoint(mConfig.index, mConfig.trimOut);
+            mEditor.changeTrimOutPoint(0, mConfig.trimOut);
 
-            mEditor.changeBrightness(mConfig.index, mConfig.bright);
-            mEditor.changeContrast(mConfig.index, mConfig.contrast);
-            mEditor.changeSaturation(mConfig.index, mConfig.saturation);
+            mEditor.changeBrightness(0, mConfig.bright);
+            mEditor.changeContrast(0, mConfig.contrast);
+            mEditor.changeSaturation(0, mConfig.saturation);
 
-            mEditor.changeRotation(mConfig.index, mConfig.rotate);
+            mEditor.changeRotation(0, mConfig.rotate);
 
             mVideoDuration = mEditor.getDuration();
             long currentTime = mEditor.getCurrentPlaybackTime();
@@ -210,7 +210,7 @@ public class PhotoEditActivity extends Activity implements KMCShortVideo.Playbac
         mChangeBright.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                onChangeBright(progress);
+                onChangeBright(progress + 1);
             }
 
             @Override
@@ -225,7 +225,7 @@ public class PhotoEditActivity extends Activity implements KMCShortVideo.Playbac
         mChangeContrast.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                onChangContrast(progress);
+                onChangContrast(progress + 1);
             }
 
             @Override
@@ -241,7 +241,7 @@ public class PhotoEditActivity extends Activity implements KMCShortVideo.Playbac
         mChangeSaturation.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                onChangeSaturation(progress);
+                onChangeSaturation(progress + 1);
             }
 
             @Override
@@ -487,7 +487,7 @@ public class PhotoEditActivity extends Activity implements KMCShortVideo.Playbac
     private void onChangeDuration(int progress) {
         if (mEditor != null) {
             mConfig.trimOut = progress * 1000000;
-            mEditor.changeTrimOutPoint(mConfig.index, mConfig.trimOut);
+            mEditor.changeTrimOutPoint(0, mConfig.trimOut);
         }
     }
 
@@ -497,7 +497,7 @@ public class PhotoEditActivity extends Activity implements KMCShortVideo.Playbac
             if (mConfig.rotate == -360) {
                 mConfig.rotate = 0;
             }
-            mEditor.changeRotation(mConfig.index, mConfig.rotate);
+            mEditor.changeRotation(0, mConfig.rotate);
         }
         onPlay();
     }
@@ -508,7 +508,7 @@ public class PhotoEditActivity extends Activity implements KMCShortVideo.Playbac
             if (mConfig.rotate == 360) {
                 mConfig.rotate = 0;
             }
-            mEditor.changeRotation(mConfig.index, mConfig.rotate);
+            mEditor.changeRotation(0, mConfig.rotate);
         }
         onPlay();
     }
@@ -516,7 +516,7 @@ public class PhotoEditActivity extends Activity implements KMCShortVideo.Playbac
     private void onChangeSaturation(int progress) {
         if (mEditor != null) {
             mConfig.saturation = progress;
-            mEditor.changeSaturation(mConfig.index, mConfig.saturation);
+            mEditor.changeSaturation(0, mConfig.saturation);
         }
         onPlay();
     }
@@ -524,7 +524,7 @@ public class PhotoEditActivity extends Activity implements KMCShortVideo.Playbac
     private void onChangContrast(int progress) {
         if (mEditor != null) {
             mConfig.contrast = progress;
-            mEditor.changeContrast(mConfig.index, mConfig.contrast);
+            mEditor.changeContrast(0, mConfig.contrast);
         }
         onPlay();
     }
@@ -532,7 +532,7 @@ public class PhotoEditActivity extends Activity implements KMCShortVideo.Playbac
     private void onChangeBright(int progress) {
         if (mEditor != null) {
             mConfig.bright = progress;
-            mEditor.changeBrightness(mConfig.index, mConfig.bright);
+            mEditor.changeBrightness(0, mConfig.bright);
         }
         onPlay();
     }

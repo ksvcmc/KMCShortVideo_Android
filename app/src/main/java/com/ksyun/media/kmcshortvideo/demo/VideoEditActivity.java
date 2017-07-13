@@ -129,12 +129,12 @@ public class VideoEditActivity extends Activity implements KMCShortVideo.Playbac
             if (mEditor == null)
                 return;
 
-            mEditor.changeSpeed(mConfig.index, mConfig.speed);
-            mEditor.changeBrightness(mConfig.index, mConfig.bright);
-            mEditor.changeContrast(mConfig.index, mConfig.contrast);
-            mEditor.changeSaturation(mConfig.index, mConfig.saturation);
-            mEditor.changeRotation(mConfig.index, mConfig.rotate);
-            mEditor.changeScale(mConfig.index, mConfig.scale);
+            mEditor.changeSpeed(0, mConfig.speed);
+            mEditor.changeBrightness(0, mConfig.bright);
+            mEditor.changeContrast(0, mConfig.contrast);
+            mEditor.changeSaturation(0, mConfig.saturation);
+            mEditor.changeRotation(0, mConfig.rotate);
+            mEditor.changeScale(0, mConfig.scale);
 
             mVideoDuration = mEditor.getDuration();
             long currentTime = mEditor.getCurrentPlaybackTime();
@@ -142,7 +142,7 @@ public class VideoEditActivity extends Activity implements KMCShortVideo.Playbac
             mLeftTime.setText(getFormatedTime(mVideoDuration - currentTime));
 
             String speed = String.format(Locale.getDefault(), "%.2f x",
-                    mEditor.getSpeed(mConfig.index));
+                    mEditor.getSpeed(0));
             mCurrentSpeed.setText(speed);
 
             mSeekBarPlay.setProgress((int) (mConfig.trimIn * 100 / mVideoDuration));
@@ -285,7 +285,7 @@ public class VideoEditActivity extends Activity implements KMCShortVideo.Playbac
         mChangeBright.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                onChangeBright(progress);
+                onChangeBright(progress + 1);
             }
 
             @Override
@@ -300,7 +300,7 @@ public class VideoEditActivity extends Activity implements KMCShortVideo.Playbac
         mChangeContrast.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                onChangContrast(progress);
+                onChangContrast(progress + 1);
             }
 
             @Override
@@ -316,7 +316,7 @@ public class VideoEditActivity extends Activity implements KMCShortVideo.Playbac
         mChangeSaturation.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                onChangeSaturation(progress);
+                onChangeSaturation(progress + 1);
             }
 
             @Override
@@ -575,6 +575,7 @@ public class VideoEditActivity extends Activity implements KMCShortVideo.Playbac
             @Override
             public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
                 ImageView view = new ImageView(parent.getContext());
+                view.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 view.setLayoutParams(new ViewGroup.LayoutParams(itemWidth,
                         ViewGroup.LayoutParams.MATCH_PARENT));
                 return new CutVideoViewHolder(view);
@@ -689,7 +690,7 @@ public class VideoEditActivity extends Activity implements KMCShortVideo.Playbac
 
     private void onZoom() {
         if (mEditor != null) {
-            mEditor.changeScale(mConfig.index, mConfig.scale);
+            mEditor.changeScale(0, mConfig.scale);
         }
     }
 
@@ -712,7 +713,7 @@ public class VideoEditActivity extends Activity implements KMCShortVideo.Playbac
             if (mConfig.rotate == -360) {
                 mConfig.rotate = 0;
             }
-            mEditor.changeRotation(mConfig.index, mConfig.rotate);
+            mEditor.changeRotation(0, mConfig.rotate);
         }
         play();
     }
@@ -723,15 +724,15 @@ public class VideoEditActivity extends Activity implements KMCShortVideo.Playbac
             if (mConfig.rotate == 360) {
                 mConfig.rotate = 0;
             }
-            mEditor.changeRotation(mConfig.index, mConfig.rotate);
+            mEditor.changeRotation(0, mConfig.rotate);
         }
         play();
     }
 
     private void onSpeedUp() {
         if (mEditor != null) {
-            mConfig.speed = mEditor.getSpeed(mConfig.index) + 1;
-            mEditor.changeSpeed(mConfig.index, mConfig.speed);
+            mConfig.speed = mEditor.getSpeed(0) + 1;
+            mEditor.changeSpeed(0, mConfig.speed);
 
             String speed = String.format(Locale.getDefault(), "%.1f x",
                     mEditor.getSpeed(mConfig.index));
@@ -743,14 +744,14 @@ public class VideoEditActivity extends Activity implements KMCShortVideo.Playbac
     private void onSpeedDown() {
         if (mEditor != null) {
             if (mConfig.speed > 1) {
-                mConfig.speed = mEditor.getSpeed(mConfig.index) - 1;
+                mConfig.speed = mEditor.getSpeed(0) - 1;
             } else {
-                mConfig.speed = mEditor.getSpeed(mConfig.index) - 0.1;
+                mConfig.speed = mEditor.getSpeed(0) - 0.1;
             }
-            mEditor.changeSpeed(mConfig.index, mConfig.speed);
+            mEditor.changeSpeed(0, mConfig.speed);
 
             String speed = String.format(Locale.getDefault(), "%.1f x",
-                    mEditor.getSpeed(mConfig.index));
+                    mEditor.getSpeed(0));
             mCurrentSpeed.setText(speed);
         }
         play();
@@ -759,7 +760,7 @@ public class VideoEditActivity extends Activity implements KMCShortVideo.Playbac
     private void onChangeSaturation(int progress) {
         if (mEditor != null) {
             mConfig.saturation = progress;
-            mEditor.changeSaturation(mConfig.index, mConfig.saturation);
+            mEditor.changeSaturation(0, mConfig.saturation);
         }
         play();
     }
@@ -767,7 +768,7 @@ public class VideoEditActivity extends Activity implements KMCShortVideo.Playbac
     private void onChangContrast(int progress) {
         if (mEditor != null) {
             mConfig.contrast = progress;
-            mEditor.changeContrast(mConfig.index, mConfig.contrast);
+            mEditor.changeContrast(0, mConfig.contrast);
         }
         play();
     }
@@ -775,7 +776,7 @@ public class VideoEditActivity extends Activity implements KMCShortVideo.Playbac
     private void onChangeBright(int progress) {
         if (mEditor != null) {
             mConfig.bright = progress;
-            mEditor.changeBrightness(mConfig.index, mConfig.bright);
+            mEditor.changeBrightness(0, mConfig.bright);
         }
         play();
     }

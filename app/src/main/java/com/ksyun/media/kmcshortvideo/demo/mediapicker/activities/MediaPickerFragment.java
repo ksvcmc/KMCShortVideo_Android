@@ -249,8 +249,6 @@ public class MediaPickerFragment extends BaseFragment implements
                     .findViewById(R.id.thumbnail);
 
             TextView textView = (TextView) view.findViewById(R.id.selected_num);
-            textView.setTextColor(getResources().getColor(R.color.white));
-            textView.setBackgroundColor(getResources().getColor(R.color.purple));
 
             MediaItem mediaItem = new MediaItem(mediaType, uri);
             mMediaAdapter.updateMediaSelected(mediaItem, pickerImageView, textView);

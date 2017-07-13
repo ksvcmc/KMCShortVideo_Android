@@ -183,7 +183,7 @@
                     android:id="@+id/change_color_bright"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:max="10"
+                    android:max="9"
                     android:layout_weight="5"/>
             </LinearLayout>
 
@@ -204,7 +204,7 @@
                     android:id="@+id/change_color_contrast"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:max="10"
+                    android:max="9"
                     android:layout_weight="5"/>
             </LinearLayout>
 
@@ -224,7 +224,7 @@
                     android:id="@+id/change_color_saturation"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:max="10"
+                    android:max="9"
                     android:layout_weight="5"/>
             </LinearLayout>
 

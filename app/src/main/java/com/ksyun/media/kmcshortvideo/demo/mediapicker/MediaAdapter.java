@@ -84,7 +84,17 @@ public class MediaAdapter extends CursorAdapter implements RecyclerListener {
         if (isSelected) {
             mPickerImageViewSelected.add(holder.imageView);
 
-            mTextviewSelected.add(holder.mask);
+            MediaItem item = new MediaItem(mediaType, uri);
+            for (int i = 0; i < mMediaListSelected.size(); i++) {
+                if (item.getUriOrigin().equals(mMediaListSelected.get(i).getUriOrigin())) {
+                    holder.mask.setText(String.valueOf(i + 1));
+                    holder.mask.setTextSize(48);
+                    holder.mask.setGravity(CENTER);
+                }
+            }
+            holder.mask.setVisibility(View.VISIBLE);
+        } else {
+            holder.mask.setVisibility(View.INVISIBLE);
         }
         mMediaImageLoader.displayImage(uri, holder.imageView);
     }
@@ -112,7 +122,7 @@ public class MediaAdapter extends CursorAdapter implements RecyclerListener {
         holder.thumbnail = root.findViewById(R.id.overlay);
 
         holder.mask = (TextView) root.findViewById(R.id.selected_num);
-        holder.mask.setVisibility(View.GONE);
+        holder.mask.setVisibility(View.INVISIBLE);
         holder.mask.setLayoutParams(mImageViewLayoutParams);
         // Check the height matches our calculated column width
         if (holder.mask.getLayoutParams().height != mItemHeight) {
@@ -190,7 +200,7 @@ public class MediaAdapter extends CursorAdapter implements RecyclerListener {
         }
         if (mTextviewSelected != null) {
             for (TextView textView: mTextviewSelected) {
-                textView.setVisibility(View.GONE);
+                textView.setVisibility(View.INVISIBLE);
             }
             mTextviewSelected.clear();
         }
@@ -229,13 +239,15 @@ public class MediaAdapter extends CursorAdapter implements RecyclerListener {
         if (mMediaListSelected.contains(item)) {
             mMediaListSelected.remove(item);
 
-            textView.setVisibility(View.GONE);
+            textView.setVisibility(View.INVISIBLE);
             this.mTextviewSelected.remove(textView);
 
             pickerImageView.setSelected(false);
             this.mPickerImageViewSelected.remove(pickerImageView);
         } else {
             mMediaListSelected.add(item);
+
+            textView.setVisibility(View.VISIBLE);
             this.mTextviewSelected.add(textView);
 
             boolean value = syncMediaSelectedAsOptions();
@@ -260,9 +272,7 @@ public class MediaAdapter extends CursorAdapter implements RecyclerListener {
     }
 
     public void showTextMask(TextView textView, int index) {
-        textView.setVisibility(View.VISIBLE);
         textView.setText(String.valueOf(index));
-        textView.getBackground().setAlpha(255*6/10);
         textView.setTextSize(48);
         textView.setGravity(CENTER);
     }
