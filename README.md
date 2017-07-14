@@ -15,10 +15,11 @@
 
 
 ## SDK使用指南
-#### 1. KMCAuthManager
-+ **鉴权**
-  本sdk包采用鉴权加密方式，需要通过商务渠道拿到授权的token信息，方可以使用，具体请咨询商务。
-鉴权函数如下，其中auth为ak信息，date为过期时间。
+#### 1. KMCAuthManager  
++ **鉴权**  
+  本sdk包采用鉴权加密方式，需要通过商务渠道拿到授权的token信息，方可以使用，具体请咨询商务。  
+鉴权函数如下，其中auth为ak信息，date为过期时间。  
+
 ```java
 /**
  * @param context
@@ -303,13 +304,14 @@ KMCAudioConfig getAudioConfig(String filePath);
 + **拉取素材列表息**
  客户可以在控制台把贴纸放入一个group里面，sdk通过groupID进行拉取，相关函数为：
 ```java
-void fetchMaterials(final Context context, final FetchMaterialListener listener)；
+void fetchMaterials(final Context context, final int materialType, 
+                    final FetchMaterialListener listener)；
 ```
 拉取成功后，资源索引文件，包括贴纸的下载地址，缩略图的下载地址，贴纸的手势ID,手势描述信息等，可以在此处设置UI相关信息。
 
 + **查询贴纸是否已经下载到本地**
 ```java
-boolean isMaterialDownloaded(Context context, KMCMaterial material);
+boolean isMaterialDownloaded(KMCMaterial material);
 ```
 
 + **下载素材**
@@ -317,4 +319,4 @@ boolean isMaterialDownloaded(Context context, KMCMaterial material);
 ```java
 void downloadMaterial(final Context context, final KMCMaterial material,
                       final DownloadMaterialListener listener);
-``
+```
