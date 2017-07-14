@@ -735,7 +735,7 @@ public class VideoEditActivity extends Activity implements KMCShortVideo.Playbac
             mEditor.changeSpeed(0, mConfig.speed);
 
             String speed = String.format(Locale.getDefault(), "%.1f x",
-                    mEditor.getSpeed(mConfig.index));
+                    mEditor.getSpeed(0));
             mCurrentSpeed.setText(speed);
         }
         play();
