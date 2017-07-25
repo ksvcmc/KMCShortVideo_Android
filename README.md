@@ -3,9 +3,9 @@
 金山魔方是一个多媒体能力提供平台，通过统一接入API、统一鉴权、统一计费等多种手段，降低客户接入多媒体处理能力的代价，提供多媒体能力供应商的效率
 
 ## 安装
-  app目录:
-+ **app**:示例工程
-+ **app/libs**: 魔方sdk包 libkmcshortvideo.jar，以及厂家sdk包
+  工程目录:   
+ + **app**:示例工程
+ + **libs**: 魔方sdk包 libkmcshortvideo.jar，以及厂家sdk包
 
 ## SDK包总体介绍
 + KMCMaterial 素材类(主题、音乐、滤镜)
