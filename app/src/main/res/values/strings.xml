@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">魔方视频编辑demo</string>
+    <string name="app_name">视频编辑</string>
     <string name="select_clip">添加视频、图片</string>
     <string name="addVideo">选择视频</string>
     <string name="addTheme">主题</string>
