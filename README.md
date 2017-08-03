@@ -11,6 +11,8 @@ token与应用包名为一一对应的关系;
   工程目录:   
  + **app**:示例工程
  + **libs**: 魔方sdk包 libkmcshortvideo.jar，以及厂家sdk包
+ 
+**注: demo工程使用软链接引用libs目录，对于windows平台做Android开发的用户，需要手动将libs目录拷贝到demo目录下。**
 
 ## SDK包总体介绍
 + KMCMaterial 素材类(主题、音乐、滤镜)
