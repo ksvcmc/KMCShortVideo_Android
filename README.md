@@ -7,12 +7,42 @@
 SDK在使用时需要用token进行鉴权后方可使用，token申请方式见**接入步骤**部分;  
 token与应用包名为一一对应的关系;
 
-## 安装
-  工程目录:   
+## 工程目录:   
  + **app**:示例工程
  + **libs**: 魔方sdk包 libkmcshortvideo.jar，以及厂家sdk包
  
 **注: demo工程使用软链接引用libs目录，对于windows平台做Android开发的用户，需要手动将libs目录拷贝到demo目录下。**
+
+
+## 导入SDK
+引入目标库, 将libs目录下的库文件引入到目标工程中并添加依赖。
+
+可参考下述配置方式（以Android Studio为例）：
+ +  推荐直接使用gradle方式集成：
+  
+    ```
+       allprojects {
+         repositories {
+             jcenter()
+       }
+       
+       dependencies {
+        compile 'com.ksyun.mc:KMCShortVideo:1.0.1'
+       }
+    ```
+
+ +  手动下载集成
+   将libs目录copy到目标工程的根目录下；
+   修改目标工程的build.gradle文件，配置jniLibs路径：
+   
+    ```
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    ```
+
 
 ## SDK包总体介绍
 + KMCMaterial 素材类(主题、音乐、滤镜)
